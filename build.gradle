@@ -4,6 +4,7 @@ version '0.0.1'
 buildscript {
 
     ext.kotlin_version = '1.0.6'
+    ext.result_version = '1.0.5'
     ext.fuel_version = '1.4.0'
     ext.jsoup_version = '1.10.2'
     ext.expekt_version = '0.5.0'
@@ -29,6 +30,7 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "com.github.kittinunf.result:result:$result_version"
     compile "com.github.kittinunf.fuel:fuel:$fuel_version"
     compile "org.jsoup:jsoup:$jsoup_version"
     testCompile "com.winterbe:expekt:$expekt_version"
