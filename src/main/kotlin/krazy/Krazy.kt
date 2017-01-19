@@ -12,7 +12,7 @@ import kotlin.reflect.*
 import kotlin.reflect.jvm.isAccessible
 
 
-object Krazz {
+object Krazy {
 
     fun <T: Any> fromUrl(url: String, scope: String, select: (Element) -> T): Result<T, Exception> {
         return Result.of { url.httpGet().responseString() }

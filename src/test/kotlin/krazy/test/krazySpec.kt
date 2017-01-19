@@ -1,7 +1,7 @@
 package krazy.test
 
 import com.winterbe.expekt.expect
-import krazy.Krazz
+import krazy.Krazy
 import krazy.annotations.Attr
 import krazy.annotations.Text
 import org.jetbrains.spek.api.Spek
@@ -10,13 +10,13 @@ import org.jetbrains.spek.api.dsl.it
 
 object krazySpec: Spek({
 
-    describe("Krazz") {
+    describe("Krazy") {
 
 //        it("should be ok") {
 //
 //            data class MyDoc(val title: String)
 //
-//            val (doc, err) = Krazz.fromUrl("http://www.baidu.com") { el ->
+//            val (doc, err) = Krazy.fromUrl("http://www.baidu.com") { el ->
 //                val title = el.select("title").text()
 //                MyDoc(title)
 //            }
@@ -55,7 +55,7 @@ object krazySpec: Spek({
 
             it("should grab content from html") {
 
-                val (ret, err) = Krazz.fromHtml(html, DocModel::class)
+                val (ret, err) = Krazy.fromHtml(html, DocModel::class)
                 val doc = ret!!
 
                 println(doc)
