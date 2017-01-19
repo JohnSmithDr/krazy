@@ -8,23 +8,27 @@ import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
 
-object _krazySpec : Spek({
+object KrazySpec : Spek({
 
     describe("Krazy") {
 
-        it("should be ok") {
+        describe("fromUrl") {
 
-            data class BaiduDoc(val title: String)
+            it("should be ok") {
 
-            val ret = Krazy.fromUrl("http://www.baidu.com") {
-                BaiduDoc(title = it.select("title").text())
+                data class BaiduDoc(val title: String)
+
+                val ret = Krazy.fromUrl("http://www.baidu.com") {
+                    BaiduDoc(title = it.select("title").text())
+                }
+
+                ret.success {
+                    expect(it.title).to.equal("百度一下，你就知道")
+                }
+
+                ret.failure { throw it }
             }
 
-            ret.success {
-                expect(it.title).to.equal("百度一下，你就知道")
-            }
-
-            ret.failure { throw it }
         }
 
         describe("fromHtml") {
@@ -71,7 +75,7 @@ object _krazySpec : Spek({
               </html>
             """
 
-            it("should grab something") {
+            it("should be ok") {
 
                 data class DocMeta(val title: String, val description: String)
 
